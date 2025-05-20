@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-bold mb-6">Etiquetes</h1>
+  <div class="flex flex-wrap gap-4">
+    {% for tag in tags %}
+      <a href="{% url 'tag-posts' tag.id %}" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">
+        {{ tag.caption }}
+      </a>
+    {% empty %}
+      <p>No hi ha tags.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block title %}Posts amb la etiqueta {{ tag.caption }}{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-bold mb-6">Posts amb la etiqueta: {{ tag.caption }}</h1>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for post in posts %}
+      {% include "blog/includes/_post_card.html" with post=post %}
+    {% empty %}
+      <p>No hi ha posts amb aquesta etiqueta.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

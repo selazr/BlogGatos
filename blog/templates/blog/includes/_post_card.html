@@ -1,0 +1,8 @@
+{% load static %}
+
+<div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
+  <img src="{% static post.image %}" alt="Post image" class="w-full h-48 object-cover rounded mb-4">
+  <h3 class="text-xl font-bold mb-2">{{ post.title }}</h3>
+  <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>
+  <a href="{% url 'posts-detail-page' post.slug %}" class="inline-block text-blue-600 hover:underline">Llegir més →</a>
+</div>

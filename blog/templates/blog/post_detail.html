@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1 class="text-4xl font-bold mb-4">{{ post.title }}</h1>
+  <p class="text-gray-500 text-sm mb-2">Publicat: {{ post.date }}</p>
+
+  <img src="{% static post.image %}" alt="{{ post.title }}" class="mb-6 rounded shadow w-full max-h-96 object-cover">
+  
+  <p class="mb-6">{{ post.content }}</p>
+
+  {% if post.tags.all %}
+    <div class="mt-8">
+      <h2 class="text-lg font-semibold mb-2 text-gray-700">Etiquetes:</h2>
+      <div class="flex flex-wrap gap-2">
+        {% for tag in post.tags.all %}
+          <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">{{ tag.caption }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
